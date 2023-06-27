@@ -36,3 +36,8 @@ git add .
 git commit -m 'Initial'
 git remote add origin git@github.com:Feliposen/Projeto-Agenda-Django-23.git
 ```
+
+
+git add .
+git commit -m 'Mudei o README.md de comandos'
+git log --oneline
