@@ -34,5 +34,5 @@ git config --global init.defaultBranch main
 git init
 git add .
 git commit -m 'Initial'
-git remote add origin URL_DO_GIT
+git remote add origin git@github.com:Feliposen/Projeto-Agenda-Django-23.git
 ```
