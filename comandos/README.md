@@ -33,6 +33,6 @@ git config --global init.defaultBranch main
 # Configure o .gitignore
 git init
 git add .
-git commit -m 'Mensagem'
+git commit -m 'Initial'
 git remote add origin URL_DO_GIT
 ```
