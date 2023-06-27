@@ -20,6 +20,7 @@ python -m venv venv
 
 pip install django
 django-admin startproject project .
+python manage.py startapp contact
 ```
 
 pip install django
@@ -41,3 +42,13 @@ git remote add origin git@github.com:Feliposen/Projeto-Agenda-Django-23.git
 git add .
 git commit -m 'Mudei o README.md de comandos'
 git log --oneline
+git push origin main -u
+
+git graph 
+git init
+git 
+git status 
+git add . 
+git commit -m "Add INIT 1"
+git branch
+git status 
