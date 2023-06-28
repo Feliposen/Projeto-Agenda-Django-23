@@ -1,6 +1,16 @@
 Iniciar o projeto Django
+```
+Migrando a base de dados do Django 
 
+python manage.py makemigrations
+python manage.py migrate
+```
+Criando e modificando a senha de um super usuario django 
 
+python manage.py createsuperuser
+python manage.py changepassword USERNAME
+
+```
 django-admin startproject Project .
 
 python manage.py runserver 
@@ -52,3 +62,33 @@ git add .
 git commit -m "Add INIT 1"
 git branch
 git status 
+
+
+'''
+python manage.py shell
+
+>>> from contact.models import Contact
+>>> Contact
+<class 'contact.models.Contact'>
+>>> c = Contact(first_name='Gustavo')
+>>> c
+<Contact: Gustavo >
+>>> c.save()
+>>> c.last_name = 'Moreira'
+>>> c.save()
+>>> c.phone ='12345555'
+>>> c.save()
+>>> c.delete()
+(1, {'contact.Contact': 1})
+< Contact: Gustavo Moreira> 
+>>>
+< Contact: Gustavo Moreira> 
+>>> c.first_name
+'Gustavo'
+>>> c.last_name
+'Moreira'
+>>> c.save()
+>>> c = Contact.object.get(id=10)
+>>> c.first_name = 'Helena'
+>>> c.save()
+'''
