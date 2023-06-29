@@ -94,7 +94,7 @@ python manage.py shell
 '''
 
 Trabalhando com o model do Django
-
+```
 # Importe o módulo
 from contact.models import Contact
 # Cria um contato (Lazy)
@@ -122,3 +122,5 @@ contacts = Contact.objects.all().order_by('-id')
 # Seleciona contatos usando filtros
 # Retorna QuerySet[]
 contacts = Contact.objects.filter(**filters).order_by('-id')
+
+python manage.py collectstatic 
