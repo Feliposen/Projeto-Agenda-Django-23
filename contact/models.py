@@ -10,6 +10,10 @@ from django.utils import timezone
 # picture (imagem)
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+
+
 class Contact(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -19,6 +23,7 @@ class Contact(models.Model):
     descriptions = models.TextField(blank=True)
     show = models.BooleanField(default=True)
     picture = models.ImageField(blank=True, upload_to='pictures/%Y/%m/')
+    category = models.CharField(max_length=50)
 
     def __str__(self) -> str:
         return f'{self.first_name} {self.last_name}'
