@@ -124,3 +124,7 @@ contacts = Contact.objects.all().order_by('-id')
 contacts = Contact.objects.filter(**filters).order_by('-id')
 
 python manage.py collectstatic 
+
+pip install faker 
+
+python utils/create_contacts.py
