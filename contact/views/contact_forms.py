@@ -42,7 +42,6 @@ def update(request, contact_id):
     form_action = reverse('contact:update', args=(contact_id,))
 
     if request.method == 'POST':
-        # form = ContactForm(request.POST, instance=contact)
         form = ContactForm(request.POST, request.FILES, instance=contact)
 
         context = {
@@ -52,6 +51,7 @@ def update(request, contact_id):
         if form.is_valid():
             contact = form.save()
             return redirect('contact:update', contact_id=contact.pk)
+
         return render(
             request,
             'contact/create.html',
@@ -61,6 +61,7 @@ def update(request, contact_id):
         'form': ContactForm(instance=contact),
         'form_action': form_action,
     }
+
     return render(
         request,
         'contact/create.html',
@@ -73,9 +74,11 @@ def delete(request, contact_id):
         Contact, pk=contact_id, show=True
     )
     confirmation = request.POST.get('confirmation', 'no')
+
     if confirmation == 'yes':
         contact.delete()
         return redirect('contact:index')
+
     return render(
         request,
         'contact/contact.html',
