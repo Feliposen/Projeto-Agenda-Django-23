@@ -13,7 +13,8 @@ class ContactForm(forms.ModelForm):
             attrs={
                 'accept': 'image/*',
             }
-        )
+        ),
+        required=False
     )
 
     class Meta:
@@ -55,7 +56,6 @@ class ContactForm(forms.ModelForm):
 
 
 class RegisterForm(UserCreationForm):
-    ...
     first_name = forms.CharField(
         required=True,
         min_length=3,
@@ -63,7 +63,6 @@ class RegisterForm(UserCreationForm):
     last_name = forms.CharField(
         required=True,
         min_length=3,
-
     )
     email = forms.EmailField()
 
@@ -76,13 +75,11 @@ class RegisterForm(UserCreationForm):
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
-
         if User.objects.filter(email=email).exists():
             self.add_error(
                 'email',
                 ValidationError('Já existe este e-mail', code='invalid')
             )
-
         return email
 
 
@@ -117,6 +114,7 @@ class RegisterUpdateForm(forms.ModelForm):
         widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
         help_text='Use the same password as before.',
         required=False,
+
     )
 
     class Meta:
